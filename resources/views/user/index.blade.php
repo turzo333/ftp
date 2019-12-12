@@ -37,6 +37,9 @@ Admin
 
 
             </td>
+            <td> <a href="{{ route('user.edit',$user->id) }}"  class="uk-button uk-button-primary">Edit</a> </td>
+                        <td> <a href="{{ route('user.delete',$user->id) }}"  class="uk-button uk-button-primary">Delete</a> </td>
+
         </tr>
 
         @endforeach

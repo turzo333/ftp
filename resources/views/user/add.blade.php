@@ -43,7 +43,7 @@
                   <div class="uk-margin">
                     <label class="uk-form-label" for="form-horizontal-text">Password</label>
                     <div class="uk-form-controls">
-                        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="Password" name="password">
+                        <input class="uk-input" id="form-horizontal-text" type="password"  placeholder="Password" name="password">
                     </div>
                 </div>
 
