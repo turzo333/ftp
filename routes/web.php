@@ -17,6 +17,10 @@
 
 
 Route::get('/', 'WebsiteController@index')->name('website.index');
+Route::get('/request', 'WebsiteController@add')->name('website.add');
+Route::post('/request', 'WebsiteController@adddata');
+
+
 Route::get('/admin', 'UserController@index')->name('admin.index');
 Route::get('/login', 'LoginController@index')->name('login.index');
 Route::post('/login', 'LoginController@verify');

@@ -1,5 +1,5 @@
 
-@extends('admin.main')
+@extends('website.main')
 
 
 @section('content')
