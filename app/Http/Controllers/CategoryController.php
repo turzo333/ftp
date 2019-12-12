@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Categorie;
+use Validator;
 
 
 class CategoryController extends Controller
@@ -32,6 +33,19 @@ class CategoryController extends Controller
 
     	 $category->name =$request->name;
     	 $category->parent =$request->parent;
+
+
+          $validation = Validator::make($request->all(), [
+            'name'=>'required',
+            'parent'=>'required',
+        ]);
+        if($validation->fails()){
+
+                        $request->session()->flash('msg', 'Some Data Missing');
+                        return redirect()->route('category.add');
+
+           
+        }
     	 
 
     	 if($category->save()){
@@ -59,6 +73,18 @@ class CategoryController extends Controller
      	$category = Categorie::find($id);
         $category->name =$request->name;
     	$category->parent =$request->parent;
+
+          $validation = Validator::make($request->all(), [
+            'name'=>'required',
+            'parent'=>'required',
+        ]);
+        if($validation->fails()){
+
+                        $request->session()->flash('msg', 'Some Data Missing');
+                        return redirect()->route('category.edit',$id);
+
+           
+        }
 
         $category->save();
         return redirect()->route('category.list');

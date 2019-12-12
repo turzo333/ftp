@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Req;
+use Validator;
+
 
 class WebsiteController extends Controller
 {
@@ -29,6 +31,21 @@ class WebsiteController extends Controller
     	 $req->name =$request->name;
     	 $req->email =$request->email;
     	 $req->content =$request->content;
+
+         
+           $validation = Validator::make($request->all(), [
+            'name'=>'required',
+            'email'=>'required',
+            'content'=>'required'
+        ]);
+        if($validation->fails()){
+
+                        $request->session()->flash('msg', 'Some Data Missing');
+                        return redirect()->route('website.index');
+
+           
+        }
+
     	 
 
     	 if($req->save()){

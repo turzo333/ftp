@@ -10,6 +10,7 @@
     <header class="uk-comment-header uk-grid-medium uk-flex-middle" uk-grid>
       
         <div class="uk-width-expand">
+            <h1>Profile:</h1>
             <h4 class="uk-comment-title uk-margin-remove"><a class="uk-link-reset" href="#">Hello {{session('name')}} </a></h4>
             <ul class="uk-comment-meta uk-subnav uk-subnav-divider uk-margin-remove-top">
                 <li><a style="

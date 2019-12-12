@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Media;
+use Validator;
+
 
 class MediaController extends Controller
 {
@@ -56,6 +58,20 @@ class MediaController extends Controller
             }
         
           }
+
+
+           $validation = Validator::make($request->all(), [
+            'name'=>'required',
+            'content'=>'required',
+            'image'=>'required'
+        ]);
+        if($validation->fails()){
+
+                        $request->session()->flash('msg', 'Some Data Missing');
+                        return redirect()->route('media.add');
+
+           
+        }
 
 
           DB::table('medias')->insert(
@@ -113,6 +129,21 @@ class MediaController extends Controller
     	
         }
     	$media->category =$request->category;
+
+
+           $validation = Validator::make($request->all(), [
+            'name'=>'required'
+           
+        ]);
+        if($validation->fails()){
+
+                        $request->session()->flash('msg', 'Some Data Missing');
+                        return redirect()->route('media.edit',$id);
+
+           
+        }
+
+
 
         $media->save();
         return redirect()->route('media.list');

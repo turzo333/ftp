@@ -9,7 +9,8 @@ use Validator;
 
 class UserController extends Controller
 {
-    //
+
+
     function index(){
     	 return view('admin.index');
 
@@ -82,6 +83,18 @@ class UserController extends Controller
     	$user->username =$request->username;
     	$user->password =$request->password;
     	$user->role =$request->role;
+
+        $validation = Validator::make($request->all(), [
+            'name'=>'required',
+            'username'=>'required',
+            'password'=>'required'
+        ]);
+        if($validation->fails()){
+
+                        $request->session()->flash('msg', 'Some Data Missing');
+                        return redirect()->route('user.edit',$id);
+
+                    }
         $user->save();
         return redirect()->route('user.list');
     	
