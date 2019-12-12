@@ -23,9 +23,14 @@
 		        <ul class="uk-navbar-nav">
 		            <li class="uk-active"><a href="{{ route('admin.index') }}">Home</a></li>
 		            <li>
-		            	<a href="{{ route('user.list') }}"></a>
+		            	<a href="{{ route('media.list') }}">Media List</a>
 		                
 		            </li>
+                    <li>
+                        <a href="{{ route('req.list') }}">Request List</a>
+                        
+                    </li>
+                    <li><a href="{{ route('category.list') }}">Category</a></li>
 		            <li><a href="{{ route('logout.index') }}">Logout</a></li>
 		        </ul>
 
@@ -33,7 +38,14 @@
         </nav>
 
 
+                
 
+
+
+<div class="uk-alert-danger" uk-alert>
+    <a class="uk-alert-close" uk-close></a>
+    <p>{{session('msg')}}</p>
+</div>
          @yield('content')
 
 

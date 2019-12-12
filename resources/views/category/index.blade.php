@@ -3,6 +3,9 @@
 
 @section('content')
 
+<a href="{{ route('category.add') }}"  class="uk-button uk-button-primary">Add Category</a> 
+
+
 <div class="uk-container">
     <table class="uk-table uk-table-hover uk-table-divider">
     <thead>

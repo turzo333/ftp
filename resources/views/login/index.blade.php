@@ -46,7 +46,12 @@
 
               </div>
 
+
+
             </form>
+
+            <a href="{{ route('user.add') }}"  class="uk-button uk-button-primary">Register User</a> 
+
         </div>
 
 

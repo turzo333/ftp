@@ -18,8 +18,10 @@
       <div class="uk-container">
 
       
-        {{session('msg')}}
-        <div class="uk-card uk-card-default uk-card-body">
+<div class="uk-alert-danger" uk-alert>
+    <a class="uk-alert-close" uk-close></a>
+    <p>{{session('msg')}}</p>
+</div>        <div class="uk-card uk-card-default uk-card-body">
             <form class="uk-form-horizontal uk-margin-large" method="post">
 
                     {{csrf_field()}}

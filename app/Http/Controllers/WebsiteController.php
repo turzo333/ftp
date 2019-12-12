@@ -10,7 +10,10 @@ class WebsiteController extends Controller
 {
     //
       function index(){
-    	 return view('website.index');
+
+        
+        $media = DB::table('medias')->get();
+    	 return view('website.index')->with('medias', $media);
 
     }
 
@@ -33,5 +36,38 @@ class WebsiteController extends Controller
         }else{
             return redirect()->route('website.add');
         }
+    }
+
+    function edit($id){
+
+        $media = DB::table('medias')
+        ->where('id', $id)
+        ->first();
+
+              
+
+        return view('website.edit')->with('media', $media);
+
+    }
+
+     function search($value){
+
+        
+        $media = DB::table('medias')
+        ->where('name','like', "%$value%")
+
+        ->get();
+         return view('website.search')->with('medias', $media);
+
+    }
+     function category($id){
+
+        
+        $media = DB::table('medias')
+        ->where('category', "$id")
+
+        ->get();
+         return view('website.search')->with('medias', $media);
+
     }
 }

@@ -22,6 +22,8 @@
 
 		        <ul class="uk-navbar-nav">
 		            <li class="uk-active"><a href="{{ route('website.index') }}">Home</a></li>
+                                        <li class="uk-active"><a href="{{ route('website.add') }}">Request</a></li>
+
 		           <!--  <li>
 		            	<a href="{{ route('user.list') }}"></a>
 		                

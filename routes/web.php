@@ -21,7 +21,7 @@ Route::get('/request', 'WebsiteController@add')->name('website.add');
 Route::post('/request', 'WebsiteController@adddata');
 
 
-Route::get('/admin', 'UserController@index')->name('admin.index');
+Route::get('/profile', 'UserController@index')->name('admin.index');
 Route::get('/login', 'LoginController@index')->name('login.index');
 Route::post('/login', 'LoginController@verify');
 
@@ -35,6 +35,8 @@ Route::get('/logout', 'LogoutController@index')->name('logout.index');
 // user
 
 Route::get('/userlist', 'UserController@list')->name('user.list');
+Route::get('/user/request', 'UserController@reqlist')->name('req.list');
+
 Route::get('/register', 'UserController@add')->name('user.add');
  Route::post('/register', 'UserController@adddata');
 
@@ -64,3 +66,10 @@ Route::get('/media/add', 'MediaController@add')->name('media.add');
  Route::get('/media/edit/{id}', 'MediaController@edit')->name('media.edit');
  Route::post('/media/edit/{id}', 'MediaController@editdata');
  Route::get('/media/delete/{id}', 'MediaController@delete')->name('media.delete');
+
+
+
+
+  Route::get('/content/{id}', 'WebsiteController@edit')->name('content.view');
+  Route::get('/search/{value}', 'WebsiteController@search')->name('content.search');
+  Route::get('/category/{id}', 'WebsiteController@category')->name('content.category');

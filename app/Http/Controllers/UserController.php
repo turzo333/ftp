@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\User;
+use Validator;
 
 class UserController extends Controller
 {
@@ -22,6 +23,14 @@ class UserController extends Controller
 
     }
 
+     function reqlist(){
+
+        $users = DB::table('reqs')->get();
+        return view('user.req')->with('users', $users);
+
+
+    }
+
     function add(){
 
     	return view('user.add');
@@ -35,6 +44,19 @@ class UserController extends Controller
     	 $user->username =$request->username;
     	 $user->password =$request->password;
     	 $user->role ='2';
+
+         $validation = Validator::make($request->all(), [
+            'name'=>'required',
+            'username'=>'required',
+            'password'=>'required'
+        ]);
+        if($validation->fails()){
+
+                        $request->session()->flash('msg', 'Some Data Missing');
+                        return redirect()->route('user.add');
+
+           
+        }
 
     	 if($user->save()){
             return redirect()->route('login.index');
