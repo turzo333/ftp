@@ -5,6 +5,22 @@
 @section('content')
 
 
+<button class="uk-button uk-button-default" type="button">Category</button>
+<div class="uk-width-large" uk-dropdown>
+    <div class="uk-dropdown-grid" uk-grid>
+        <div>
+            <ul class="uk-nav uk-dropdown-nav">
+                  @foreach($categories as $category)
+                    <li><a href="{{ route('content.category' ,$category->id) }}">{{$category->name}}</a></li>
+                 @endforeach
+              
+            </ul>
+        </div>
+       
+    </div>
+</div>
+
+
 <div class="uk-grid-small uk-child-width-expand@s uk-text-center" uk-grid>
 
 	            @foreach($medias as $media)

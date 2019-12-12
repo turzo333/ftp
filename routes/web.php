@@ -71,5 +71,5 @@ Route::get('/media/add', 'MediaController@add')->name('media.add');
 
 
   Route::get('/content/{id}', 'WebsiteController@edit')->name('content.view');
-  Route::get('/search/{value}', 'WebsiteController@search')->name('content.search');
+  Route::post('/search', 'WebsiteController@search');
   Route::get('/category/{id}', 'WebsiteController@category')->name('content.category');

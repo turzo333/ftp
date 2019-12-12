@@ -11,9 +11,9 @@ class WebsiteController extends Controller
     //
       function index(){
 
-        
+        $category = DB::table('categories')->get();
         $media = DB::table('medias')->get();
-    	 return view('website.index')->with('medias', $media);
+    	 return view('website.index')->with('medias', $media)->with('categories', $category);
 
     }
 
@@ -50,11 +50,11 @@ class WebsiteController extends Controller
 
     }
 
-     function search($value){
+     function search(Request $request){
 
         
         $media = DB::table('medias')
-        ->where('name','like', "%$value%")
+        ->where('name','like', "%$request->value%")
 
         ->get();
          return view('website.search')->with('medias', $media);

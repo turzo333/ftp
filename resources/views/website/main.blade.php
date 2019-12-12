@@ -29,6 +29,10 @@
 		                
 		            </li>
 		            <li><a href="{{ route('logout.index') }}">Logout</a></li> -->
+                    <li><form method="post" action="/search">                       {{csrf_field()}}
+
+                        <input type="text" name="value" class="uk-input"><input type="submit" name="submit" class="uk-button uk-button-primary" >
+                    </form></li>
 		        </ul>
 
 		    </div>
