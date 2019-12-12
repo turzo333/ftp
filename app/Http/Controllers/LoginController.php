@@ -23,6 +23,8 @@ class LoginController extends Controller
 
 		if(count($user) > 0){
 			$request->session()->put('uname', $request->input('username'));
+			$request->session()->put('name', $user->name);
+
 			$request->session()->put('role', $user->role);
 
 			return redirect()->route('admin.index');
