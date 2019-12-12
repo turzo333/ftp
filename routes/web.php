@@ -53,10 +53,10 @@ Route::get('/category/add', 'CategoryController@add')->name('category.add');
 
 
 
- Route::get('/media', 'CategoryController@list')->name('media.list');
-Route::get('/media/add', 'CategoryController@add')->name('media.add');
- Route::post('/media/add', 'CategoryController@adddata');
+ Route::get('/media', 'MediaController@list')->name('media.list');
+Route::get('/media/add', 'MediaController@add')->name('media.add');
+ Route::post('/media/add', 'MediaController@adddata');
 
- Route::get('/media/edit/{id}', 'CategoryController@edit')->name('media.edit');
- Route::post('/media/edit/{id}', 'CategoryController@editdata');
- Route::get('/media/delete/{id}', 'CategoryController@delete')->name('media.delete');
+ Route::get('/media/edit/{id}', 'MediaController@edit')->name('media.edit');
+ Route::post('/media/edit/{id}', 'MediaController@editdata');
+ Route::get('/media/delete/{id}', 'MediaController@delete')->name('media.delete');

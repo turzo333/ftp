@@ -9,11 +9,7 @@ use App\Categorie;
 
 class CategoryController extends Controller
 {
-       function index(){
-    	 return view('admin.index');
-
-    }
-
+     
     function list(){
 
     	$category = DB::table('categories')->get();
